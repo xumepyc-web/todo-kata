@@ -46,6 +46,15 @@ export default class App extends Component {
     });
   };
 
+
+
+
+
+
+
+
+
+
   onToggleDone = (id) => {
     this.setState(({ todoData }) => {
       const idx = todoData.findIndex((el) => el.id === id);
