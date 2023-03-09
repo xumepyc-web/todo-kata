@@ -106,8 +106,10 @@ export default class App extends Component {
 
     return (
       <section className="todoapp">
-        <h1>todos</h1>
-        <NewTaskForm addTask={this.addTask} />
+        <header className="header">
+          <h1>todos</h1>
+          <NewTaskForm addTask={this.addTask} />
+        </header>
         <section className="main">
           <TaskList todos={visibleItems} deleteItem={this.deleteItem} onToggleDone={this.onToggleDone} />
           <Footer
