@@ -10,12 +10,20 @@ export default class Timer extends Component {
     second: 0,
     minute: 0,
   };
+  componentDidMount() {
+    this.setState({
+      second:
+        localStorage.getItem(`second${this.props.id}`) === null ? 0 : localStorage.getItem(`second${this.props.id}`),
+    });
+  }
 
   updateTimer = () => {
     if (this.state.start) {
-      this.sec++;
-      this.setState({
-        second: this.sec,
+      localStorage.setItem(`second${this.props.id}`, `${this.state.second}`);
+      this.setState(({ second }) => {
+        return {
+          second: Number(second) + 1,
+        };
       });
       if (this.state.second === 59) {
         this.sec = 0;
@@ -29,9 +37,7 @@ export default class Timer extends Component {
   };
   onPlay = () => {
     if (this.state.pause) {
-      this.interval = setInterval(() => {
-        this.updateTimer();
-      }, 1000);
+      this.interval = setInterval(this.updateTimer, 1000);
     }
     this.setState({
       start: true,

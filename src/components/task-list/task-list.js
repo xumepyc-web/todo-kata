@@ -28,6 +28,7 @@ export default class TaskList extends Component {
             onToggleDone={() => onToggleDone(id)}
             deleteItem={() => deleteItem(id)}
             time={todoDate}
+            id={id}
           />
         </span>
       );

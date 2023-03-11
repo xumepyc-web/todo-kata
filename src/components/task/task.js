@@ -6,7 +6,7 @@ import '../task/task.css';
 
 export default class Task extends Component {
   render() {
-    const { label, deleteItem, onToggleDone, done, del, time } = this.props;
+    const { label, deleteItem, onToggleDone, done, del, time, id } = this.props;
 
     let classNames = '';
 
@@ -24,7 +24,7 @@ export default class Task extends Component {
           <input className="toggle" type="checkbox" onClick={onToggleDone} />
           <label>
             <span className="title">{label}</span>
-            <Timer />
+            <Timer id={id} />
             <span className="description">created {formatDistanceToNow(time)} ago</span>
           </label>
           <button className="icon icon-edit"></button>
